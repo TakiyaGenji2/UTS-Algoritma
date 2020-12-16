@@ -1,2 +1,3 @@
 # UTS-Algoritma
-oleh : Yusuf Taqiyuddin
+Program Bank Sampah
+Oleh : Yusuf Taqiyuddin
