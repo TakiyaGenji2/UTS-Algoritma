@@ -1,0 +1,235 @@
+#Bank Sampah
+#dibuat oleh yusuf taqiyuddin
+
+#LOGIN AKUN
+#username =(bebas)
+#password = 12345
+
+import getpass as pswd
+
+def setor():
+    print("="*47,"BANK SAMPAH BEJI","="*47)
+    print("1. Besi \n2. Aluminium \n3. Koran \n4. Buku \n5. Botol \n6. Tembaga \n7. Kembali")
+    print("="*112)
+
+    kode = int(input       ("nomor Sampah yang ingin disetorkan : "))
+    if kode == 1:
+        jumlah1 = int(input("Setor Berapa Kilogram              : "))
+        total1 = 1500 * jumlah1
+        saldo.append(total1)
+        berat.append(jumlah1)
+        tanya()
+    elif kode == 2:
+        jumlah2 = int(input("Setor Berapa Kilogram              : "))
+        total2 = 6000 * jumlah2
+        saldo.append(total2)
+        berat.append(jumlah2)
+        tanya()
+    elif kode == 3:
+        jumlah3 = int(input("Setor Berapa Kilogram              : "))
+        total3 = 1500 * jumlah3 
+        saldo.append(total3)
+        berat.append(jumlah3)
+        tanya()
+    elif kode == 4:
+        jumlah4 = int(input("Setor Berapa Kilogram              : "))
+        total4 = 1500 * jumlah4 
+        saldo.append(total4)
+        berat.append(jumlah4)
+        tanya()
+    elif kode == 5:
+        jumlah5 = int(input("Setor Berapa Kilogram              : "))
+        total5 = 2000 * jumlah5
+        saldo.append(total5)
+        berat.append(jumlah5)
+        tanya()
+    elif kode == 6:
+        jumlah6 = int(input("Setor Berapa Kilogram              : "))
+        total6 = 5000 * jumlah6   
+        saldo.append(total6)
+        berat.append(jumlah6)
+        tanya()
+    elif kode == 7:
+      menu()
+    else:
+      print("PILIHAN TIDAK ADA")
+      print("="*112)
+      setor()
+
+def jenis():
+  print("="*47,"BANK SAMPAH BEJI","="*47)
+  print("")
+  print("No  Jenis Sampah      Harga per-Kg")
+  print("")
+  print("1.  Besi              Rp. 1500    ")     
+  print("2.  Alumunium         Rp. 6000    ")
+  print("3.  Koran             Rp. 1500    ")
+  print("4.  Buku              Rp. 1500    ")
+  print("5.  Botol             Rp. 2000    ")
+  print("6.  Tembaga           Rp. 5000    ")
+  print('='*112)
+  back1()
+
+def hitung():
+  A=sum(saldo)
+  totalsaldo=A
+  B=sum(berat)
+  totalberat=B
+
+def ambil():
+  global tarik,hasil,totalberat,totalsaldo1
+  A=sum(saldo)
+  totalsaldo1=A
+  B=sum(berat)
+  totalberat=B
+  print("Penarikan Saldo")
+  print("Saldo Anda sekarang       : Rp.",totalsaldo1)
+  tarik=int(input("Jumlah yang ingin diambil : Rp. "))
+  if tarik > totalsaldo1:
+      print("saldo tidak cukup")
+      print('='*112)
+      ambil()
+  else:
+      hasil = totalsaldo1 - tarik
+      print("saldo tersisa            : Rp.",hasil)
+      del saldo[2:10] 
+      saldo[1] = hasil
+      back()
+
+def nota():
+      A=sum(saldo)
+      totalsaldo=A
+      B=sum(berat)
+      totalberat=B
+      print("="*47,"BANK SAMPAH BEJI","="*47)
+      print("Nama                 :",username)
+      print("Berat Total Setoran  :",totalberat,"Kg")
+      print("Uang yang dihasilkan : Rp",totalsaldo1)
+      print("Uang yang diambil    : Rp",tarik)
+      print("Sisa Saldo           : Rp",hasil)
+      print("="*112)
+
+
+def menu():
+  A = sum(saldo)
+  totalsaldo = A
+  B = sum(berat)
+  totalberat = B
+  print('='*112)
+  print("Selamat Datang, ",username)
+  print('')
+  print('Saldo Anda    : Rp.',totalsaldo)
+  print('Berat setoran :',totalberat,'Kg')
+  print('')
+  print("1. Jenis Sampah")
+  print("2. Setor Sampah")
+  print("3. Tarik Saldo ")
+  print("4. Cetak Nota")
+  print("5. Exit")
+  print('-'*112)
+  pilihan = input("Pilih menu: ")
+
+  if pilihan == '1':
+      print('='*112)
+      jenis()
+  elif pilihan == '2':
+      print('='*112)
+      setor()
+  elif pilihan == '3':
+      print('='*112)
+      ambil()
+  elif pilihan == '4':
+    print("")
+    nota()
+  elif pilihan == '5':
+      print('='*112)
+      exit()
+  else:
+      print('='*112)
+      print("INPUT SALAH")
+      menu()
+
+def back1():
+  ask=input("Kembali ke menu utama?[y/t]: ")
+  if ask=='y':
+    menu()
+  elif ask=='t':
+    exit()
+  else:
+    print("INPUT SALAH")
+    back1()  
+
+def back():
+  ask=input("Kembali ke menu utama?[y/t]: ")
+  if ask=='y':
+    menu()
+  elif ask=='t':
+    nota()
+    exit()
+  else:
+    print("INPUT SALAH")
+    back()
+
+def tanya():     
+      ask = input("Apa ada sampah yang ingin disetorkan lagi? [ y / t ] : ")
+      if ask=='y':
+          setor()
+      elif ask=='t':
+          hitung()
+          A=sum(saldo)
+          totalsaldo=A
+          B=sum(berat)
+          totalberat=B
+          menu()
+      else :
+          print("INPUT SALAH")
+          tanya()
+def Login():
+  global login
+  print("MENU LOGIN BANK SAMPAH DESA BEJI")
+  print("1. Admin")
+  print("2. Nasabah")
+  print("3. Exit")
+  login=input("Masukkan pilihan : ")
+  user()
+def user(): 
+  global username,saldo,berat 
+  if login=='1':
+    print('='*112)
+    username = input ("Username : ")
+    passwd = pswd.getpass("Password : ")
+    password = {"12345"}
+    if passwd in password:
+        print("selamat " + username + ", Anda berhasil Login")
+        saldo = [0]
+        berat = [0]
+        print('')
+        menu()
+    else:
+        print("Password yang anda masukkan salah")
+        print("="*112)
+        user()
+  elif login=='2':
+    print('='*112)
+    username = input ("Username : ")
+    passwd = pswd.getpass("Password : ")
+    password = {"12345"}
+    if passwd in password:
+        print("selamat " + username + ", Anda berhasil Login")
+        saldo = [0]
+        berat = [0]
+        print('')
+        menu()
+    else:
+        print("Password yang anda masukkan salah")
+        print("="*112)
+        user()
+  elif login=='3':
+    exit()
+  else:
+    print('='*112)
+    print ("OPSI TIDAK ADA")
+    print('='*112)
+    Login()
+
+Login()
